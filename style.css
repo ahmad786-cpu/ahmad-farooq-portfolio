@@ -1116,41 +1116,50 @@ footer {
 /* Timeline */
 .timeline {
     position: relative;
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 900px;
+    margin: 40px auto 0;
+    padding: 20px 0;
 }
 
 .timeline::after {
     content: '';
     position: absolute;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--primary), transparent);
+    width: 3px;
+    background: linear-gradient(to bottom, transparent, var(--primary), var(--primary), transparent);
     top: 0;
     bottom: 0;
     left: 20px;
-    margin-left: -1px;
+    margin-left: -1.5px;
+    border-radius: 10px;
+    opacity: 0.3;
 }
 
 .timeline-item {
-    padding: 10px 40px;
+    padding: 0 20px 40px 50px;
     position: relative;
     background-color: inherit;
     width: 100%;
-    margin-bottom: 30px;
 }
 
 .timeline-item::after {
     content: '';
     position: absolute;
-    width: 16px;
-    height: 16px;
-    left: 12px;
-    background-color: var(--bg-dark);
-    border: 2px solid var(--primary);
-    top: 15px;
+    width: 14px;
+    height: 14px;
+    left: 13px;
+    background: var(--bg-dark);
+    border: 3px solid var(--primary);
+    top: 5px;
     border-radius: 50%;
-    z-index: 1;
-    box-shadow: 0 0 10px var(--primary-glow);
+    z-index: 2;
+    box-shadow: 0 0 15px var(--primary-glow);
+    animation: pulse-glow 2s infinite;
+}
+
+@keyframes pulse-glow {
+    0% { box-shadow: 0 0 5px var(--primary-glow); }
+    50% { box-shadow: 0 0 20px var(--primary-glow); }
+    100% { box-shadow: 0 0 5px var(--primary-glow); }
 }
 
 .timeline-content {
@@ -1171,13 +1180,19 @@ footer {
 
 /* Experience Card Redesign */
 .exp-card {
-    padding: 24px !important;
-    border-left: 3px solid var(--primary) !important;
-    transition: var(--t-normal);
+    padding: 30px !important;
+    background: rgba(30, 41, 59, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.05) !important;
+    border-left: 4px solid var(--primary) !important;
+    border-radius: 20px !important;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .exp-card:hover {
-    box-shadow: 0 0 20px var(--primary-glow), 0 20px 40px rgba(0,0,0,0.4) !important;
+    background: rgba(30, 41, 59, 0.6) !important;
+    border-color: rgba(124, 255, 172, 0.2) !important;
+    transform: translateX(10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
 }
 
 .exp-card-header {
