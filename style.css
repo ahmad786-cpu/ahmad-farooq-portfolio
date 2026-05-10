@@ -537,6 +537,18 @@ footer {
 
   .about-img {
     margin-bottom: 40px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .about-img .glass-card {
+    height: 400px !important;
+  }
+
+  .contact-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
