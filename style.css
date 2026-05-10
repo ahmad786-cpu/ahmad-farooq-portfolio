@@ -998,11 +998,109 @@ footer {
 }
 
 .timeline-content .date {
-    color: var(--primary);
-    font-weight: 700;
-    font-size: 0.9rem;
-    margin-bottom: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.82rem;
     display: block;
+}
+
+/* Experience Card Redesign */
+.exp-card {
+    padding: 24px !important;
+    border-left: 3px solid var(--primary) !important;
+    transition: var(--t-normal);
+}
+
+.exp-card:hover {
+    box-shadow: 0 0 20px var(--primary-glow), 0 20px 40px rgba(0,0,0,0.4) !important;
+}
+
+.exp-card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.exp-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background: rgba(124, 255, 172, 0.1);
+    border: 1px solid rgba(124, 255, 172, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.exp-icon i {
+    font-size: 1.3rem;
+    color: var(--primary);
+}
+
+.exp-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.exp-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.exp-badge.current {
+    color: var(--primary);
+}
+
+.exp-title {
+    font-size: 1.2rem !important;
+    font-weight: 700;
+    margin-bottom: 8px !important;
+    color: var(--text-main);
+}
+
+.exp-company {
+    font-size: 0.88rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.exp-company i {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+.exp-desc {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 16px !important;
+}
+
+.exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.exp-tags span {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(124, 255, 172, 0.08);
+    border: 1px solid rgba(124, 255, 172, 0.2);
+    padding: 4px 10px;
+    border-radius: 20px;
 }
 
 /* Community Stats */
