@@ -246,7 +246,7 @@ nav .container {
 .logo {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 3vw, 1.2rem);
   display: flex;
   align-items: center;
   color: #ffffff;
@@ -263,9 +263,9 @@ nav .container {
 .logo-name {
   font-family: 'Mrs Saint Delafield', cursive;
   font-weight: 400;
-  font-size: 3.2rem;
-  margin: 0 12px;
-  transform: translateY(4px);
+  font-size: clamp(1.8rem, 6vw, 2.4rem);
+  margin: 0 8px;
+  transform: translateY(2px);
 }
 
 .logo:hover {
