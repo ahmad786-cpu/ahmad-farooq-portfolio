@@ -192,9 +192,10 @@ img {
 
 /* Glass Card */
 .glass-card {
-  background: rgba(15, 23, 42, 0.4);
+  background: rgba(30, 41, 59, 0.6);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 24px;
   padding: 40px;
   transition: var(--t-normal);
@@ -1266,6 +1267,18 @@ footer {
     .projects-grid,
     .stats-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .projects-grid {
+        gap: 10px;
+    }
+    
+    .project-card.glass-card {
+        padding: 20px;
+    }
+    
+    .project-info {
+        padding: 20px 0 0 0;
     }
     
     .hero-socials {
