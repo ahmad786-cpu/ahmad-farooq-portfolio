@@ -139,9 +139,12 @@ img {
 #about.section-padding,
 #tech.section-padding,
 #projects.section-padding,
-#experience.section-padding,
 #contact.section-padding {
   padding: 100px 0;
+}
+
+#experience.section-padding {
+  padding: 120px 0;
 }
 
 .flex-center {
@@ -1135,7 +1138,7 @@ footer {
 }
 
 .timeline-item {
-    padding: 0 20px 40px 50px;
+    padding: 0 20px 30px 50px;
     position: relative;
     background-color: inherit;
     width: 100%;
@@ -1180,7 +1183,7 @@ footer {
 
 /* Experience Card Redesign */
 .exp-card {
-    padding: 30px !important;
+    padding: 20px 24px !important;
     background: rgba(30, 41, 59, 0.4) !important;
     border: 1px solid rgba(255, 255, 255, 0.05) !important;
     border-left: 4px solid var(--primary) !important;
