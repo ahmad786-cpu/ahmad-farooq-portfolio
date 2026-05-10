@@ -244,21 +244,36 @@ nav .container {
 }
 
 .logo {
-  font-family: 'Mrs Saint Delafield', cursive;
-  font-weight: 400;
-  font-size: 2.4rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
-  gap: 12px;
   color: #ffffff;
   text-decoration: none;
   transition: var(--t-normal);
   white-space: nowrap;
 }
 
-.logo:hover {
+.logo-bracket {
   color: var(--primary);
+  letter-spacing: 2px;
+}
+
+.logo-name {
+  font-family: 'Mrs Saint Delafield', cursive;
+  font-weight: 400;
+  font-size: 3.2rem;
+  margin: 0 12px;
+  transform: translateY(4px);
+}
+
+.logo:hover {
   transform: scale(1.05);
+}
+
+.logo:hover .logo-bracket {
+  text-shadow: 0 0 10px var(--primary-glow);
 }
 
 .nav-links {
