@@ -261,11 +261,11 @@ nav .container {
 }
 
 .logo-name {
-  font-family: 'Mrs Saint Delafield', cursive;
-  font-weight: 400;
-  font-size: clamp(1.8rem, 6vw, 2.4rem);
-  margin: 0 8px;
-  transform: translateY(2px);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.4rem, 5vw, 1.8rem);
+  margin: 0 6px;
+  letter-spacing: 1px;
 }
 
 .logo:hover {
@@ -958,7 +958,7 @@ footer {
     content: '';
     position: absolute;
     width: 2px;
-    background: var(--border);
+    background: linear-gradient(to bottom, var(--primary), transparent);
     top: 0;
     bottom: 0;
     left: 20px;
@@ -984,6 +984,7 @@ footer {
     top: 15px;
     border-radius: 50%;
     z-index: 1;
+    box-shadow: 0 0 10px var(--primary-glow);
 }
 
 .timeline-content {
@@ -1214,6 +1215,23 @@ footer {
     
     .about-text h2 {
         font-size: 2rem !important;
+    }
+
+    /* Timeline Mobile Adjustments */
+    .timeline::after {
+        left: 0;
+    }
+    
+    .timeline-item {
+        padding: 0 0 30px 24px;
+    }
+    
+    .timeline-item::after {
+        left: -8px;
+    }
+    
+    .timeline-content {
+        padding: 20px;
     }
 
     /* Hidden Elements */
