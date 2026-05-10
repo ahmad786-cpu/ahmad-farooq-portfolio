@@ -1164,9 +1164,27 @@ nav .container {
     .footer-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+        text-align: center;
     }
     .brand-col {
         grid-column: span 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer-socials {
+        justify-content: center;
+    }
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .time-header {
+        justify-content: center;
+    }
+    .availability-badge {
+        justify-content: center;
     }
     .footer-bottom {
         flex-direction: column;
