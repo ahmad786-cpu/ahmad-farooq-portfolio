@@ -4,10 +4,40 @@ import { initForm } from '@formspree/ajax';
 lucide.createIcons();
 
 // Navbar Scroll Effect
+// Navbar and UI Elements
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-links a');
 const backToTop = document.getElementById('backToTop');
+const mobileToggle = document.querySelector('.mobile-menu-toggle');
+const navLinksContainer = document.querySelector('.nav-links');
 
+// Mobile Menu Toggle
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (navLinksContainer.classList.contains('active')) {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
+    });
+}
+
+// Close mobile menu on link click
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        navLinksContainer.classList.remove('active');
+        if (mobileToggle) {
+            const icon = mobileToggle.querySelector('i');
+            icon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+        }
+    });
+});
+
+// Scroll Events
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -21,7 +51,6 @@ window.addEventListener('scroll', () => {
         backToTop.classList.remove('show');
     }
     
-    // Update active link on scroll
     updateActiveLink();
 });
 
