@@ -1457,6 +1457,10 @@ footer {
         max-width: 100%;
     }
     
+    .section-header {
+        text-align: center;
+    }
+
     .section-header h2 {
         font-size: 2rem;
     }
@@ -1478,6 +1482,10 @@ footer {
     
     .hero {
         padding: 100px 0 60px;
+    }
+
+    .contact-wrapper {
+        text-align: center;
     }
 
     /* Footer Adjustments */
