@@ -868,46 +868,76 @@ nav .container {
   overflow: hidden;
 }
 
-/* Skills Grid */
-.skills-container {
+/* Tech Grid */
+.tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
 }
 
-.skill-category {
-  padding: 32px;
+.tech-category {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 24px;
+  transition: var(--t-normal);
 }
 
-.skill-category h3 {
-  margin-bottom: 20px;
-  font-size: 1.2rem;
-  color: var(--text-main);
+.tech-category:hover {
+  border-color: var(--primary);
+  background: rgba(15, 23, 42, 0.6);
+  transform: translateY(-4px);
+}
+
+.tech-cat-header {
   display: flex;
   align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tech-cat-header img {
+  width: 24px;
+  height: 24px;
+}
+
+.tech-cat-header span {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.tech-pills {
+  display: flex;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
-.skill-list {
+.tech-pills span {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-.skill-item {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid var(--border);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-size: 0.9rem;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
   color: var(--text-muted);
   transition: var(--t-fast);
 }
 
-.skill-item:hover {
+.tech-pills span img {
+  width: 14px;
+  height: 14px;
+}
+
+.tech-pills span:hover {
   border-color: var(--primary);
-  color: var(--text-main);
-  background: rgba(59, 130, 246, 0.05);
+  color: var(--primary);
+  background: rgba(124, 255, 172, 0.05);
 }
 
 /* Stats Section */
@@ -1496,7 +1526,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    .skills-container,
+    .tech-grid,
     .projects-grid,
     .stats-grid {
         grid-template-columns: 1fr;
