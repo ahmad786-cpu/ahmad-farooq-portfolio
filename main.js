@@ -3,41 +3,72 @@ import { initForm } from '@formspree/ajax';
 // Initialize Lucide Icons
 lucide.createIcons();
 
-// Navbar Scroll Effect
-// Navbar and UI Elements
+// Navbar and Scroll Effects
 const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-links a');
+const mobileToggle = document.getElementById('mobile-toggle');
+const navLinksContainer = document.getElementById('nav-links');
 const backToTop = document.getElementById('backToTop');
-const mobileToggle = document.querySelector('.mobile-menu-toggle');
-const navLinksContainer = document.querySelector('.nav-links');
+const sections = document.querySelectorAll('section');
 
-// Mobile Menu Toggle
-if (mobileToggle) {
-    mobileToggle.addEventListener('click', () => {
-        navLinksContainer.classList.toggle('active');
-        const icon = mobileToggle.querySelector('i');
-        if (navLinksContainer.classList.contains('active')) {
-            icon.setAttribute('data-lucide', 'x');
-        } else {
-            icon.setAttribute('data-lucide', 'menu');
-        }
-        lucide.createIcons();
-    });
+// Typewriter Effect
+const typewriterElement = document.getElementById('typewriter');
+const roles = [
+    "Flutter Developer",
+    "Product Engineer",
+    "UI/UX Designer",
+    "Open Source Contributor",
+    "Tech Lead"
+];
+let roleIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+let typeSpeed = 100;
+
+function type() {
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+        typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+        charIndex--;
+        typeSpeed = 50;
+    } else {
+        typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+        charIndex++;
+        typeSpeed = 150;
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+        isDeleting = true;
+        typeSpeed = 2000; // Pause at end
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        roleIndex = (roleIndex + 1) % roles.length;
+        typeSpeed = 500;
+    }
+
+    setTimeout(type, typeSpeed);
 }
 
-// Close mobile menu on link click
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinksContainer.classList.remove('active');
-        if (mobileToggle) {
-            const icon = mobileToggle.querySelector('i');
-            icon.setAttribute('data-lucide', 'menu');
-            lucide.createIcons();
-        }
-    });
+document.addEventListener('DOMContentLoaded', () => {
+    type();
+    updateFooterDate();
 });
 
-// Scroll Events
+// Footer Date
+function updateFooterDate() {
+    const dayElement = document.getElementById('current-day');
+    const dateElement = document.getElementById('current-date');
+    const now = new Date();
+    
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
+    dayElement.textContent = now.getDate();
+    dateElement.textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getFullYear()}`;
+}
+
+// Scroll Event Handler
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -50,21 +81,8 @@ window.addEventListener('scroll', () => {
     } else {
         backToTop.classList.remove('show');
     }
-    
-    updateActiveLink();
-});
 
-backToTop.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
-
-function updateActiveLink() {
     let current = "";
-    const sections = document.querySelectorAll('section');
-    
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -79,83 +97,57 @@ function updateActiveLink() {
             link.classList.add('active');
         }
     });
+});
+
+// Mobile Toggle
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        const icon = mobileToggle.querySelector('i');
+        if (navLinksContainer.classList.contains('active')) {
+            icon.setAttribute('data-lucide', 'x');
+        } else {
+            icon.setAttribute('data-lucide', 'menu');
+        }
+        lucide.createIcons();
+    });
 }
 
-// Reveal Animations on Scroll
+// Reveal Animations
 const revealElements = document.querySelectorAll('[data-reveal]');
-
 const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('active');
-            // Stop observing once revealed
-            // revealObserver.unobserve(entry.target); 
         }
     });
-}, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -50px 0px'
-});
+}, { threshold: 0.1 });
 
-revealElements.forEach(el => {
-    revealObserver.observe(el);
-});
+revealElements.forEach(el => revealObserver.observe(el));
 
-// Contact Form Handling
-const contactForm = document.getElementById('portfolio-contact-form');
-
-if (contactForm) {
-    initForm({
-        formElement: '#portfolio-contact-form',
-        formId: 'mjglporl',
-        onSuccess: () => {
-            const btn = contactForm.querySelector('button');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = 'Message Sent! <i data-lucide="check"></i>';
-            btn.style.background = 'linear-gradient(135deg, #22c55e 0%, #16a34a 100%)';
-            lucide.createIcons();
-            contactForm.reset();
-            
-            setTimeout(() => {
-                btn.innerHTML = 'Send Message <i data-lucide="send"></i>';
-                btn.style.background = '';
-                btn.disabled = false;
-                lucide.createIcons();
-            }, 4000);
-        },
-        onError: () => {
-            const btn = contactForm.querySelector('button');
-            btn.innerHTML = 'Error! Try Again <i data-lucide="alert-circle"></i>';
-            btn.style.background = '#ef4444';
-            lucide.createIcons();
-            
-            setTimeout(() => {
-                btn.innerHTML = 'Send Message <i data-lucide="send"></i>';
-                btn.style.background = '';
-                btn.disabled = false;
-                lucide.createIcons();
-            }, 4000);
-        }
-    });
-
-    // Add a simple listener for the "Sending..." state
-    contactForm.addEventListener('submit', () => {
-        const btn = contactForm.querySelector('button');
-        btn.innerHTML = 'Sending...';
-        btn.disabled = true;
-    });
-}
-
-// Smooth scrolling for navigation links
+// Smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === "#") return;
         e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
+        const target = document.querySelector(targetId);
         if (target) {
             window.scrollTo({
-                top: target.offsetTop - 80,
+                top: target.offsetTop - 100,
                 behavior: 'smooth'
             });
+            navLinksContainer.classList.remove('active');
         }
     });
 });
+
+// Back to Top Click
+if (backToTop) {
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
