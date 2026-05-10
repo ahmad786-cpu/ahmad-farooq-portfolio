@@ -1116,7 +1116,7 @@ footer {
 /* Timeline */
 .timeline {
     position: relative;
-    max-width: 900px;
+    max-width: 750px;
     margin: 40px auto 0;
     padding: 20px 0;
 }
