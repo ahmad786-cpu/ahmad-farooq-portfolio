@@ -489,24 +489,55 @@
         <i data-lucide="chevron-up"></i>
     </div>
 
-    <footer style="padding-bottom: 40px;">
+    <footer class="main-footer">
         <div class="container">
-            <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 40px;">
-                <div style="display: flex; align-items: center; gap: 15px;">
-                    <span id="current-day" style="font-size: 2rem; font-weight: 800; color: var(--primary);"></span>
-                    <div style="text-align: left;">
-                        <p id="current-date" style="font-weight: 600; font-size: 0.9rem;"></p>
-                        <p style="color: var(--text-dim); font-size: 0.8rem;">Pakistan Time</p>
+            <div class="footer-grid">
+                <!-- Column 1: Brand -->
+                <div class="footer-col brand-col">
+                    <a href="#" class="logo footer-logo">
+                        <img src="/af_tech_logo.png" alt="AF TECH Logo" class="logo-img">
+                        <span class="logo-name"><span style="color: var(--primary);">AF</span> TECH</span>
+                    </a>
+                    <p class="footer-tagline">Building modern digital experiences with focus on performance, scalability, and user-centric design.</p>
+                    <div class="footer-socials">
+                        <a href="https://linkedin.com/in/ahmad-farooq-57bb771bb" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com/ahmad786-cpu" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="#" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
                     </div>
                 </div>
-                <a href="#" class="logo">
-                    <img src="/af_tech_logo.png" alt="AF TECH Logo" class="logo-img" style="width: 30px; height: 30px;">
-                    <span class="logo-name" style="font-size: 1.2rem;"><span style="color: var(--primary);">AF</span> TECH</span>
-                </a>
-                <div style="text-align: right;">
-                    <p style="font-weight: 600; font-size: 0.9rem;">Made with Ahmad</p>
-                    <p style="color: var(--text-dim); font-size: 0.8rem;">&copy; 2026 AF TECH</p>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col links-col">
+                    <h4 class="footer-title">Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#experience">Experience</a></li>
+                    </ul>
                 </div>
+
+                <!-- Column 3: Contact & Time -->
+                <div class="footer-col contact-col">
+                    <h4 class="footer-title">Status</h4>
+                    <div class="footer-time-card">
+                        <div class="time-header">
+                            <span id="current-day" class="time-day"></span>
+                            <div class="time-meta">
+                                <span id="current-date" class="time-full-date"></span>
+                                <span class="time-zone">Pakistan Standard Time</span>
+                            </div>
+                        </div>
+                        <div class="availability-badge">
+                            <div class="pulse-dot"></div> Available for new projects
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 AF TECH. All rights reserved.</p>
+                <p>Designed & Built with <i class="fa-solid fa-heart" style="color: #ff4d4d; font-size: 0.8rem;"></i> by Ahmad Farooq</p>
             </div>
         </div>
     </footer>
