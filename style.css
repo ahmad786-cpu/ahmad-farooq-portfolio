@@ -35,7 +35,7 @@ body {
   background-color: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
-  line-height: 1.6;
+  line-height: 1.8; /* Increased for better readability */
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   position: relative;
@@ -58,7 +58,8 @@ body::before {
 h1, h2, h3, h4, .font-display {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em; /* Slightly tighter for a modern look */
+  line-height: 1.2;
 }
 
 a {
@@ -493,6 +494,7 @@ nav .container {
   max-width: 600px;
   margin: 0 0 60px 0;
   line-height: 1.8;
+  opacity: 0.9;
 }
 
 .hero-btns {
@@ -664,7 +666,8 @@ nav .container {
 }
 
 .section-header h2 {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  margin-bottom: 16px;
 }
 
 /* Projects Grid */
