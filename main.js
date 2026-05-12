@@ -68,35 +68,49 @@ function updateFooterDate() {
     dateElement.textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getFullYear()}`;
 }
 
-// Scroll Event Handler
+// Scroll Event Handler - Optimized to prevent layout thrashing
+let sectionOffsets = [];
+
+function cacheSectionOffsets() {
+    sectionOffsets = Array.from(sections).map(section => ({
+        id: section.getAttribute('id'),
+        top: section.offsetTop - 150
+    }));
+}
+
+window.addEventListener('resize', cacheSectionOffsets);
+document.addEventListener('DOMContentLoaded', cacheSectionOffsets);
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
+    const scrollPos = window.scrollY || window.pageYOffset;
+
+    if (scrollPos > 50) {
         navbar.classList.add('scrolled');
     } else {
         navbar.classList.remove('scrolled');
     }
 
-    if (window.scrollY > 500) {
+    if (scrollPos > 500) {
         backToTop.classList.add('show');
     } else {
         backToTop.classList.remove('show');
     }
 
     let current = "";
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 150)) {
-            current = section.getAttribute('id');
+    for (const section of sectionOffsets) {
+        if (scrollPos >= section.top) {
+            current = section.id;
         }
-    });
+    }
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
+    if (current) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href').includes(current)) {
+                link.classList.add('active');
+            }
+        });
+    }
 });
 
 // Mobile Toggle
@@ -169,11 +183,16 @@ faqItems.forEach(item => {
     });
 });
 
-// Solution Cards Glow Effect
-const solutionCards = document.querySelectorAll('.solution-card');
+// Solution Cards Glow Effect - Optimized to prevent forced reflows
 solutionCards.forEach(card => {
+    let rect;
+    
+    card.addEventListener('mouseenter', () => {
+        rect = card.getBoundingClientRect();
+    });
+
     card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
+        if (!rect) rect = card.getBoundingClientRect();
         const x = ((e.clientX - rect.left) / rect.width) * 100;
         const y = ((e.clientY - rect.top) / rect.height) * 100;
         card.style.setProperty('--mouse-x', `${x}%`);

@@ -4,6 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Performance: Preconnect to critical origins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+    
+    <!-- LCP Preload: Ensure hero image is discovered instantly -->
+    <link rel="preload" as="image" href="/Profile.jpeg" fetchpriority="high">
+    
     <title>Build Your Vision: Flutter Expert | 50+ Success Stories</title>
     <link rel="icon" type="image/png" href="/af_tech_logo.png">
     <link rel="canonical" href="https://ahmad-farooq-portfolio.vercel.app/">
@@ -109,17 +119,17 @@
     }
     </script>
 
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Font Awesome for brand icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- Non-blocking Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
 </head>
 
 <body>
     <nav id="navbar">
         <div class="container">
-            <div class="mobile-toggle" id="mobile-toggle">
+            <div class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
                 <i data-lucide="menu"></i>
             </div>
             <ul class="nav-links" id="nav-links">
@@ -131,7 +141,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#" class="logo">
-                <img src="/af_tech_logo.png" alt="AF TECH Logo" class="logo-img">
+                <img src="/logo_optimized.png" alt="AF TECH Logo" class="logo-img" width="70" height="70">
                 <span class="logo-name"><span style="color: var(--primary);">AF</span> TECH</span>
             </a>
         </div>
@@ -155,21 +165,21 @@
                         <div class="hero-socials">
                             <div class="social-line"></div>
                             <div class="social-icons-wrapper">
-                                <a href="https://linkedin.com/in/ahmad-farooq-57bb771bb" target="_blank" class="social-btn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="https://github.com/ahmad786-cpu" target="_blank" class="social-btn" title="GitHub"><i class="fab fa-github"></i></a>
-                                <a href="https://www.fiverr.com/s/WE2aPoQ" target="_blank" class="social-btn" title="Fiverr">
-                                    <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="Fiverr Logo" style="width: 18px; height: 18px;">
+                                <a href="https://linkedin.com/in/ahmad-farooq-57bb771bb" target="_blank" class="social-btn" aria-label="Connect with Ahmad on LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/ahmad786-cpu" target="_blank" class="social-btn" aria-label="View Ahmad's GitHub Projects" title="GitHub"><i class="fab fa-github"></i></a>
+                                <a href="https://www.fiverr.com/s/WE2aPoQ" target="_blank" class="social-btn" aria-label="Hire Ahmad on Fiverr" title="Fiverr">
+                                    <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="Fiverr Icon" style="width: 18px; height: 18px;">
                                 </a>
-                                <a href="https://wa.me/923475776857" target="_blank" class="social-btn" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                                <a href="https://wa.me/923475776857" target="_blank" class="social-btn" aria-label="Chat with Ahmad on WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                             </div>
                         </div>
                         <div class="hero-btns">
-                            <a href="#contact" class="underline-link" style="font-size: 1.2rem; letter-spacing: 2px;">LET'S CHAT!</a>
+                            <a href="#contact" class="underline-link" aria-label="Contact Ahmad Farooq for a project" style="font-size: 1.2rem; letter-spacing: 2px;">LET'S CHAT!</a>
                         </div>
                     </div>
                     <div class="hero-image-container">
                         <div class="hero-image-wrapper">
-                            <img src="./public/Profile.jpeg" alt="Ahmad Farooq">
+                            <img src="/Profile.jpeg" alt="Ahmad Farooq - Top-Rated Flutter Developer" width="500" height="500" fetchpriority="high" loading="eager" decoding="async">
                             <div class="image-accent-border"></div>
                         </div>
                     </div>
@@ -817,6 +827,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./main.js"></script>
 </body>
 
