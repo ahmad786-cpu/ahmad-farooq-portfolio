@@ -50,7 +50,9 @@ function type() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    lucide.createIcons();
+    if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+    }
     type();
     updateFooterDate();
 });
@@ -184,6 +186,7 @@ faqItems.forEach(item => {
 });
 
 // Solution Cards Glow Effect - Optimized to prevent forced reflows
+const solutionCards = document.querySelectorAll('.solution-card');
 solutionCards.forEach(card => {
     let rect;
     
