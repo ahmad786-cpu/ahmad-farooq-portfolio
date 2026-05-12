@@ -121,6 +121,27 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
+    <style>
+        :root {
+            --bg-dark: #020617;
+            --primary: #7CFFAC;
+            --text-main: #f8fafc;
+            --container-max: 1200px;
+        }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+        [data-reveal] { opacity: 0; transform: translateY(30px); }
+    </style>
     
     <!-- Non-blocking Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
