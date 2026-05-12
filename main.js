@@ -1,7 +1,6 @@
 import { initForm } from '@formspree/ajax';
 
-// Initialize Lucide Icons
-lucide.createIcons();
+// Initialize Lucide Icons (Moved into DOMContentLoaded for safety)
 
 // Navbar and Scroll Effects
 const navbar = document.getElementById('navbar');
@@ -51,6 +50,7 @@ function type() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
     type();
     updateFooterDate();
 });
