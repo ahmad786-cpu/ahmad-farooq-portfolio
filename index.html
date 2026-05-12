@@ -52,6 +52,36 @@
     }
     </script>
 
+    <!-- FAQPage Schema for Rich Results -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What services does Ahmad Farooq offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ahmad Farooq offers senior-level expertise in Flutter mobile development, Node.js backend architecture, and professional UI/UX design."
+        }
+      }, {
+        "@type": "Question",
+        "name": "How many years of experience does Ahmad have?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ahmad has over 4 years of professional experience in building scalable digital products and enterprise-grade applications."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Is Ahmad available for freelance projects?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, Ahmad is currently available for freelance projects, consulting, and building high-performance MVPs for startups."
+        }
+      }]
+    }
+    </script>
+
     <link rel="stylesheet" href="./style.css">
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -93,7 +123,7 @@
                         <h1>Engineering Digital Excellence</h1>
                         <h2 style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 600;">I am a <span class="typewriter-text" id="typewriter"></span></h2>
                         <p class="quote">“Crafting seamless experiences through code and design.”</p>
-                        <p>With over 4 years of expertise, I architect scalable solutions and high-performance products. My focus is on delivering business value through robust MVPs and enterprise-grade systems.</p>
+                        <p>I build high-performance products with over 4 years of expertise. As a result, my solutions help businesses grow. Specifically, I focus on delivering robust MVPs and scalable enterprise systems.</p>
                         <div class="hero-socials">
                             <div class="social-line"></div>
                             <div class="social-icons-wrapper">
@@ -188,10 +218,10 @@
                     <div class="about-text" data-reveal>
                         <h2 style="font-size: 3rem; margin-bottom: 24px; line-height: 1.2;">From complex code to <span class="text-gradient">elegant products</span></h2>
                         <p style="margin-bottom: 24px; color: var(--text-muted); font-size: 1.1rem;">
-                            I specialize in building cross-platform ecosystems for travel, e-commerce, and lifestyle industries. My approach combines technical rigor with a deep understanding of user behavior to create products that scale.
+                            I create cross-platform apps for travel and e-commerce. Moreover, I focus on how users behave. Consequently, I build products that are easy to use and scale perfectly.
                         </p>
                         <p style="margin-bottom: 32px; color: var(--text-muted); font-size: 1.1rem;">
-                            As a lead contributor to the Flutter community in Pakistan, I am dedicated to open-source and knowledge sharing. Beyond engineering, I focus on UI/UX strategy and mentoring the next generation of developers.
+                            Additionally, I lead the Flutter community in Pakistan. For example, I contribute to many open-source projects. Finally, I mentor new developers and help them grow in the tech industry.
                         </p>
                         <a href="./public/resume.pdf" class="btn btn-primary" style="padding: 15px 40px;">Download Resume</a>
                     </div>
@@ -603,6 +633,30 @@
                 </div>
             </div>
         </section>
+        <!-- FAQ Section for Rich Results -->
+        <section class="section-padding" style="background: rgba(255,255,255,0.02);">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="badge">Common Questions</span>
+                    <h2>Frequently Asked Questions</h2>
+                </div>
+                <div class="tech-grid" data-reveal style="grid-template-columns: 1fr; max-width: 800px; margin: 0 auto;">
+                    <div class="glass-card" style="padding: 24px; margin-bottom: 16px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">What services do you offer?</h4>
+                        <p>I offer senior-level expertise in Flutter mobile development, Node.js backend architecture, and professional UI/UX design.</p>
+                    </div>
+                    <div class="glass-card" style="padding: 24px; margin-bottom: 16px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">How many years of experience do you have?</h4>
+                        <p>I have over 4 years of professional experience in building scalable digital products and enterprise-grade applications.</p>
+                    </div>
+                    <div class="glass-card" style="padding: 24px;">
+                        <h4 style="color: var(--primary); margin-bottom: 10px;">Are you available for freelance projects?</h4>
+                        <p>Yes, I am currently available for freelance projects, consulting, and building high-performance MVPs for startups.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Side Socials -->
@@ -670,6 +724,7 @@
 
             <div class="footer-bottom">
                 <p>&copy; 2026 AF TECH. All rights reserved.</p>
+                <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 5px;">Last Updated: May 12, 2026</p>
                 <p>Designed & Built with <i class="fa-solid fa-heart" style="color: #ff4d4d; font-size: 0.8rem;"></i> by Ahmad Farooq</p>
             </div>
         </div>
