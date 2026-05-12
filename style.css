@@ -312,7 +312,7 @@ nav .container {
   position: relative;
   padding: 120px 0 100px;
   overflow: hidden;
-  background: linear-gradient(rgba(10, 15, 30, 0.85), rgba(10, 15, 30, 0.95)), url('./public/hero-bg.png') center/cover no-repeat;
+  background: linear-gradient(rgba(10, 15, 30, 0.85), rgba(10, 15, 30, 0.95)), url('/hero_bg_optimized.png') center/cover no-repeat;
 }
 
 .hero-blob {
