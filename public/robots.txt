@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ahmad-farooq.com/sitemap.xml
+Sitemap: https://ahmad-farooq-portfolio.vercel.app/sitemap.xml
