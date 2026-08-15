@@ -14,6 +14,8 @@ const sections = document.querySelectorAll('section');
 const typewriterElement = document.getElementById('typewriter');
 const roles = [
     "Flutter Developer",
+    "React Native Developer",
+    "Full-Stack Developer",
     "Product Engineer",
     "UI/UX Designer",
     "Open Source Contributor",
