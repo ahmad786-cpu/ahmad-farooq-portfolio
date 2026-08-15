@@ -1,6 +1,10 @@
 import * as THREE from 'three';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/examples/jsm/postprocessing/OutputPass.js';
 
 // Progressive enhancement only: bail out cleanly if the browser can't
 // render WebGL, or the visitor has asked for less motion. The flat
@@ -40,6 +44,20 @@ function initScene(canvas) {
     renderer.setClearColor(BG, 1);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+
+    // Bloom makes the wireframe geometry actually glow instead of reading as flat lines.
+    const composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+    const bloomPass = new UnrealBloomPass(
+        new THREE.Vector2(window.innerWidth, window.innerHeight),
+        0.9,   // strength
+        0.45,  // radius
+        0.12,  // luminance threshold
+    );
+    composer.addPass(bloomPass);
+    composer.addPass(new OutputPass());
 
     // --- Camera path: one waypoint per section, in document order ---
     const stops = [
@@ -114,17 +132,32 @@ function initScene(canvas) {
     // about: soft pulsing sphere
     const aboutSphere = addSpinner(new THREE.Mesh(new THREE.SphereGeometry(2.5, 16, 16), wireMat(PRIMARY, 0.5)), stops[2].look, 0.05);
 
-    // tech: ring of orbiting nodes
+    // tech: ring of orbiting nodes, laced together by a live-updating web of lines
     const techGroup = new THREE.Group();
     techGroup.add(new THREE.Mesh(new THREE.TorusGeometry(3.2, 0.05, 8, 48), wireMat(SECONDARY, 0.5)));
     const orbitNodes = [];
-    for (let i = 0; i < 8; i++) {
+    const NODE_COUNT = 8;
+    for (let i = 0; i < NODE_COUNT; i++) {
         const node = new THREE.Mesh(new THREE.SphereGeometry(0.28, 10, 10), wireMat(PRIMARY));
-        const angle = (i / 8) * Math.PI * 2;
+        const angle = (i / NODE_COUNT) * Math.PI * 2;
         node.userData.angle = angle;
         techGroup.add(node);
         orbitNodes.push(node);
     }
+    // Each node links to the two nodes across the ring, so the shape reads as a
+    // rotating constellation/network rather than a plain circle of dots.
+    const linkPairs = [];
+    for (let i = 0; i < NODE_COUNT; i++) {
+        linkPairs.push([i, (i + 1) % NODE_COUNT]);
+        linkPairs.push([i, (i + 3) % NODE_COUNT]);
+    }
+    const linkGeo = new THREE.BufferGeometry();
+    const linkPositions = new Float32Array(linkPairs.length * 2 * 3);
+    linkGeo.setAttribute('position', new THREE.BufferAttribute(linkPositions, 3));
+    const linkLines = new THREE.LineSegments(linkGeo, new THREE.LineBasicMaterial({
+        color: PRIMARY, transparent: true, opacity: 0.35,
+    }));
+    techGroup.add(linkLines);
     addSpinner(techGroup, stops[3].look, 0.1);
 
     // projects: drifting translucent planes
@@ -202,9 +235,15 @@ function initScene(canvas) {
             node.userData.angle += delta * 0.3;
             node.position.set(Math.cos(node.userData.angle) * 3.2, Math.sin(i * 0.6) * 0.6, Math.sin(node.userData.angle) * 3.2);
         });
+        const linkPos = linkGeo.attributes.position.array;
+        linkPairs.forEach(([a, b], i) => {
+            const pa = orbitNodes[a].position, pb = orbitNodes[b].position;
+            linkPos.set([pa.x, pa.y, pa.z, pb.x, pb.y, pb.z], i * 6);
+        });
+        linkGeo.attributes.position.needsUpdate = true;
         aboutSphere.scale.setScalar(1 + Math.sin(clock.elapsedTime * 0.8) * 0.05);
 
-        renderer.render(scene, camera);
+        composer.render();
     }
     render();
 
@@ -217,5 +256,7 @@ function initScene(canvas) {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
+        composer.setSize(window.innerWidth, window.innerHeight);
+        bloomPass.setSize(window.innerWidth, window.innerHeight);
     });
 }

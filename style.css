@@ -291,8 +291,12 @@ nav .container {
   letter-spacing: 1px;
 }
 
+.logo {
+  transform: perspective(500px) rotateX(var(--lrx, 0deg)) rotateY(var(--lry, 0deg)) translateY(var(--lty, 0px));
+}
+
 .logo:hover {
-  transform: translateY(-2px);
+  --lty: -2px;
 }
 
 .logo:hover .logo-img {
@@ -1279,13 +1283,13 @@ nav .container {
 /* Animations */
 [data-reveal] {
   opacity: 0;
-  transform: translateY(30px);
+  transform: perspective(1000px) translateY(30px) rotateX(-10deg);
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-reveal].active {
   opacity: 1;
-  transform: translateY(0);
+  transform: perspective(1000px) translateY(0) rotateX(0deg);
 }
 
 /* Mobile Menu */

@@ -232,3 +232,27 @@ tiltCards.forEach(card => {
         card.style.setProperty('--ry', '0deg');
     });
 });
+
+// Navbar logo gets the same tilt treatment, with a tighter range.
+const logo = document.querySelector('.logo');
+if (logo) {
+    let logoRect;
+    const LOGO_TILT_MAX_DEG = 12;
+
+    logo.addEventListener('mouseenter', () => {
+        logoRect = logo.getBoundingClientRect();
+    });
+
+    logo.addEventListener('mousemove', e => {
+        if (!logoRect) logoRect = logo.getBoundingClientRect();
+        const px = (e.clientX - logoRect.left) / logoRect.width;
+        const py = (e.clientY - logoRect.top) / logoRect.height;
+        logo.style.setProperty('--lry', `${(px - 0.5) * 2 * LOGO_TILT_MAX_DEG}deg`);
+        logo.style.setProperty('--lrx', `${(0.5 - py) * 2 * LOGO_TILT_MAX_DEG}deg`);
+    });
+
+    logo.addEventListener('mouseleave', () => {
+        logo.style.setProperty('--lrx', '0deg');
+        logo.style.setProperty('--lry', '0deg');
+    });
+}
