@@ -45,16 +45,17 @@ function initScene(canvas) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    renderer.toneMappingExposure = 1.15;
+    renderer.toneMappingExposure = 1.0;
 
-    // Bloom makes the wireframe geometry actually glow instead of reading as flat lines.
+    // Bloom gives the wireframe geometry a soft glow — kept restrained so it
+    // reads as premium ambiance, not a neon/gamey effect.
     const composer = new EffectComposer(renderer);
     composer.addPass(new RenderPass(scene, camera));
     const bloomPass = new UnrealBloomPass(
         new THREE.Vector2(window.innerWidth, window.innerHeight),
-        0.9,   // strength
-        0.45,  // radius
-        0.12,  // luminance threshold
+        0.45,  // strength
+        0.35,  // radius
+        0.3,   // luminance threshold
     );
     composer.addPass(bloomPass);
     composer.addPass(new OutputPass());
@@ -87,10 +88,10 @@ function initScene(canvas) {
     starGeo.setAttribute('position', new THREE.BufferAttribute(starPositions, 3));
     const starMat = new THREE.PointsMaterial({
         color: PRIMARY,
-        size: 0.6,
+        size: 0.35,
         sizeAttenuation: true,
         transparent: true,
-        opacity: 0.55,
+        opacity: 0.4,
         blending: THREE.AdditiveBlending,
         depthWrite: false,
     });
@@ -100,7 +101,7 @@ function initScene(canvas) {
     const grid = new THREE.GridHelper(420, 42, PRIMARY, SECONDARY);
     grid.position.set(0, -6, -150);
     grid.material.transparent = true;
-    grid.material.opacity = 0.25;
+    grid.material.opacity = 0.15;
     scene.add(grid);
 
     // --- Per-section landmarks (built once, animated every frame) ---
@@ -113,7 +114,7 @@ function initScene(canvas) {
         return mesh;
     }
 
-    function wireMat(color = PRIMARY, opacity = 0.85) {
+    function wireMat(color = PRIMARY, opacity = 0.6) {
         return new THREE.MeshBasicMaterial({ color, wireframe: true, transparent: true, opacity });
     }
 
@@ -182,7 +183,7 @@ function initScene(canvas) {
     addSpinner(new THREE.Mesh(new THREE.IcosahedronGeometry(3.2, 0), wireMat(SECONDARY, 0.6)), stops[6].look, 0.09);
 
     // contact: portal ring
-    addSpinner(new THREE.Mesh(new THREE.TorusGeometry(3, 0.35, 8, 32), wireMat(PRIMARY, 0.8)), stops[7].look, 0.15);
+    addSpinner(new THREE.Mesh(new THREE.TorusGeometry(3, 0.35, 8, 32), wireMat(PRIMARY, 0.6)), stops[7].look, 0.15);
 
     // faq: small floating tetrahedra
     const faqGroup = new THREE.Group();
@@ -223,8 +224,8 @@ function initScene(canvas) {
         positionCurve.getPointAt(t, camPos);
         lookCurve.getPointAt(t, lookPos);
 
-        parallaxX += (mouse.x * 1.4 - parallaxX) * 0.04;
-        parallaxY += (-mouse.y * 0.8 - parallaxY) * 0.04;
+        parallaxX += (mouse.x * 0.7 - parallaxX) * 0.04;
+        parallaxY += (-mouse.y * 0.4 - parallaxY) * 0.04;
 
         camera.position.set(camPos.x + parallaxX, camPos.y + parallaxY, camPos.z);
         camera.lookAt(lookPos);

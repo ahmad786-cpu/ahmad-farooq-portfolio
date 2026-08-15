@@ -208,7 +208,7 @@ solutionCards.forEach(card => {
 // 3D Tilt Effect - project/tech/glass cards tilt toward the pointer,
 // same rect-caching approach as the solution card glow above.
 const tiltCards = document.querySelectorAll('.pcard, .tech-category, .glass-card');
-const TILT_MAX_DEG = 8;
+const TILT_MAX_DEG = 4;
 
 tiltCards.forEach(card => {
     let rect;
@@ -237,7 +237,7 @@ tiltCards.forEach(card => {
 const logo = document.querySelector('.logo');
 if (logo) {
     let logoRect;
-    const LOGO_TILT_MAX_DEG = 12;
+    const LOGO_TILT_MAX_DEG = 6;
 
     logo.addEventListener('mouseenter', () => {
         logoRect = logo.getBoundingClientRect();
