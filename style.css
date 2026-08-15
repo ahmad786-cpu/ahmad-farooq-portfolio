@@ -332,7 +332,7 @@ nav .container {
   position: relative;
   padding: 120px 0 100px;
   overflow: hidden;
-  background: #020617; /* Solid base */
+  background: transparent; /* let the persistent 3D scene show through */
 }
 
 .hero::before {
@@ -342,10 +342,7 @@ nav .container {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(3, 9, 26, 0.4), rgba(3, 9, 26, 0.75)),
-                    url('/hero-bg.png');
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(rgba(3, 9, 26, 0.4), rgba(3, 9, 26, 0.75));
   z-index: 0;
   animation: backgroundPulse 20s ease-in-out infinite alternate;
 }
