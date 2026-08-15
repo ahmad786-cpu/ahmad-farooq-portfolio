@@ -47,11 +47,23 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: 
+  background-image:
     radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.03) 1px, transparent 0);
   background-size: 40px 40px;
   pointer-events: none;
   z-index: -2;
+}
+
+/* Persistent 3D scene: sits between the dotted grid (-2) and page content.
+   Progressively enhanced — scene3d.js hides this (display:none) when WebGL
+   or motion isn't available, revealing body::before underneath unchanged. */
+#webgl-scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
 }
 
 h1, h2, h3, h4, .font-display {
@@ -206,10 +218,14 @@ img {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.glass-card {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--tscale, 1));
+}
+
 .glass-card:hover {
   border-color: rgba(24, 181, 255, 0.2);
   background: rgba(15, 23, 42, 0.6);
-  transform: translateY(-5px);
+  --ty: -5px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
@@ -713,6 +729,7 @@ nav .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  perspective: 1200px;
 }
 
 /* New Project Card */
@@ -742,9 +759,14 @@ nav .container {
   pointer-events: none;
 }
 
+.pcard {
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--tscale, 1));
+}
+
 .pcard:hover {
   border-color: transparent;
-  transform: translateY(-8px) scale(1.02);
+  --ty: -8px;
+  --tscale: 1.02;
   box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 30px rgba(24,181,255,0.1);
   background: rgba(15, 23, 42, 0.7);
 }
@@ -939,6 +961,7 @@ nav .container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 24px;
+  perspective: 1200px;
 }
 
 .tech-category {
@@ -947,12 +970,13 @@ nav .container {
   border-radius: 20px;
   padding: 24px;
   transition: var(--t-normal);
+  transform: perspective(900px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(var(--ty, 0px)) scale(var(--tscale, 1));
 }
 
 .tech-category:hover {
   border-color: var(--primary);
   background: rgba(15, 23, 42, 0.6);
-  transform: translateY(-4px);
+  --ty: -4px;
 }
 
 .tech-cat-header {

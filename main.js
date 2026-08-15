@@ -191,7 +191,7 @@ faqItems.forEach(item => {
 const solutionCards = document.querySelectorAll('.solution-card');
 solutionCards.forEach(card => {
     let rect;
-    
+
     card.addEventListener('mouseenter', () => {
         rect = card.getBoundingClientRect();
     });
@@ -202,5 +202,33 @@ solutionCards.forEach(card => {
         const y = ((e.clientY - rect.top) / rect.height) * 100;
         card.style.setProperty('--mouse-x', `${x}%`);
         card.style.setProperty('--mouse-y', `${y}%`);
+    });
+});
+
+// 3D Tilt Effect - project/tech/glass cards tilt toward the pointer,
+// same rect-caching approach as the solution card glow above.
+const tiltCards = document.querySelectorAll('.pcard, .tech-category, .glass-card');
+const TILT_MAX_DEG = 8;
+
+tiltCards.forEach(card => {
+    let rect;
+
+    card.addEventListener('mouseenter', () => {
+        rect = card.getBoundingClientRect();
+    });
+
+    card.addEventListener('mousemove', e => {
+        if (!rect) rect = card.getBoundingClientRect();
+        const px = (e.clientX - rect.left) / rect.width;
+        const py = (e.clientY - rect.top) / rect.height;
+        const ry = (px - 0.5) * 2 * TILT_MAX_DEG;
+        const rx = (0.5 - py) * 2 * TILT_MAX_DEG;
+        card.style.setProperty('--rx', `${rx}deg`);
+        card.style.setProperty('--ry', `${ry}deg`);
+    });
+
+    card.addEventListener('mouseleave', () => {
+        card.style.setProperty('--rx', '0deg');
+        card.style.setProperty('--ry', '0deg');
     });
 });

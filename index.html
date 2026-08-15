@@ -153,6 +153,7 @@
 </head>
 
 <body>
+    <canvas id="webgl-scene" aria-hidden="true"></canvas>
     <nav id="navbar">
         <div class="container">
             <div class="mobile-toggle" id="mobile-toggle" role="button" tabindex="0" aria-label="Toggle Navigation Menu">
@@ -921,6 +922,12 @@
 
     <script src="https://unpkg.com/lucide@latest"></script>
     <script type="module" src="./main.js"></script>
+    <script type="module">
+        // Deferred: the 3D layer (three.js + gsap, ~180kB gzipped) is a
+        // progressive enhancement, not critical content — load it after
+        // the page settles so it never competes with LCP/hero paint.
+        window.addEventListener('load', () => { import('./scene3d.js'); });
+    </script>
 </body>
 
 </html>
