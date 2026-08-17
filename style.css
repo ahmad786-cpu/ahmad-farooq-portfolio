@@ -1430,6 +1430,22 @@ nav .container {
     margin-bottom: 24px;
 }
 
+.exp-bento-desc-list {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    padding-left: 20px;
+}
+
+.exp-bento-desc-list li {
+    margin-bottom: 6px;
+}
+
+.exp-bento-desc-list li::marker {
+    color: var(--primary);
+}
+
 .exp-bento-tags {
     display: flex;
     flex-wrap: wrap;
