@@ -2171,3 +2171,36 @@ html, body {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
 }
+
+/* Ask My AI: Parlor demo embedded in a frame */
+.hero-btns { align-items: center; flex-wrap: wrap; }
+.ai-btn { padding: 10px 22px; }
+
+.ai-frame {
+  border-radius: 32px 8px 32px 8px;
+  overflow: hidden;
+  border: 1px solid var(--border-hover);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(24, 181, 255, 0.12);
+  background: #edeef3; /* matches the embedded page while it loads */
+}
+
+.ai-frame iframe {
+  display: block;
+  width: 100%;
+  height: 760px;
+  border: 0;
+}
+
+.ai-note {
+  margin-top: 18px;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.ai-note a { color: var(--primary); margin-left: 6px; }
+
+@media (max-width: 860px) {
+  /* The demo stacks the call panel above the chat on narrow screens. */
+  .ai-frame iframe { height: 1150px; }
+}

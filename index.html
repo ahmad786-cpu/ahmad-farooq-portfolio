@@ -165,6 +165,7 @@
                 <li><a href="#tech">Tech</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#ask-my-ai">Ask My AI</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#" class="logo">
@@ -202,6 +203,7 @@
                         </div>
                         <div class="hero-btns">
                             <a href="#contact" class="underline-link" aria-label="Contact Ahmad Farooq for a project" style="font-size: 1.2rem; letter-spacing: 2px;">LET'S CHAT!</a>
+                            <a href="#ask-my-ai" class="btn btn-outline ai-btn" aria-label="Talk to Ahmad's AI assistant"><i class="fa-solid fa-microphone"></i> Talk to my AI</a>
                         </div>
                     </div>
                     <div class="hero-image-container">
@@ -452,6 +454,26 @@
                 </div>
 
                 <div class="projects-grid" data-reveal>
+                    <!-- Project: Parlor -->
+                    <div class="pcard highlight">
+                        <div class="pcard-img">
+                            <img src="./public/parlor.svg" alt="Parlor - AI voice personalities app by Ahmad Farooq" loading="lazy">
+                            <div class="pcard-overlay">
+                                <div class="pcard-tags">
+                                    <span>AI</span><span>Next.js</span><span>Voice</span><span>Supabase</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pcard-body">
+                            <h3>Parlor</h3>
+                            <p>Create AI personalities with their own behaviour and voice, then talk to them by voice or text. Replies stream live from a language model and are spoken sentence by sentence, with Google sign-in, conversation history and public share links.</p>
+                            <div class="pcard-actions">
+                                <a href="https://github.com/ahmad786-cpu/parlor" target="_blank" class="pcard-btn"><i class="fa-brands fa-github"></i> GitHub</a>
+                                <a href="#ask-my-ai" class="pcard-btn pcard-btn-primary"><i class="fa-solid fa-microphone"></i> Try It</a>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Project 0: Zyro Cloud -->
                     <div class="pcard highlight">
                         <div class="pcard-img">
@@ -789,6 +811,23 @@
         </section>
 
         <!-- Contact Section -->
+        <section id="ask-my-ai" class="section-padding">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="badge">Built with Parlor</span>
+                    <h2>Ask My AI</h2>
+                    <p style="margin-top: 10px; color: var(--text-muted);">Talk to an AI version of me about my work, skills and projects, or describe your idea and get a first take on how to build it. Type a message, or press <strong>Start call</strong> to talk out loud.</p>
+                </div>
+                <div class="ai-frame" data-reveal>
+                    <iframe src="https://parlor-navy-six.vercel.app/dashboard/personality-demo?token=AhmadFarooq-wjX87" title="Chat with Ahmad Farooq's AI assistant" loading="lazy" allow="microphone; autoplay; clipboard-write"></iframe>
+                </div>
+                <p class="ai-note">
+                    Voice works best in Chrome or Edge. Answers are AI-generated; for a quote, <a href="#contact">contact me directly</a>.
+                    <a href="https://parlor-navy-six.vercel.app/dashboard/personality-demo?token=AhmadFarooq-wjX87" target="_blank" rel="noopener">Open full screen <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </p>
+            </div>
+        </section>
+
         <section id="contact" class="section-padding">
             <div class="container">
                 <div class="section-header" data-reveal>

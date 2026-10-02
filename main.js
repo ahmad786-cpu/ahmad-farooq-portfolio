@@ -13,6 +13,7 @@ const sections = document.querySelectorAll('section');
 // Typewriter Effect
 const typewriterElement = document.getElementById('typewriter');
 const roles = [
+    "AI Developer",
     "Flutter Developer",
     "React Native Developer",
     "Full-Stack Developer",

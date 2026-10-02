@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Parlor: talk to AI personalities by voice">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="0%" r="110%">
+      <stop offset="0" stop-color="#123a7a"/>
+      <stop offset="0.65" stop-color="#03091A"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#7fd6ff"/>
+      <stop offset="1" stop-color="#18B5FF"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- the call orb: rings show it is listening -->
+  <g transform="translate(400 380)">
+    <circle r="150" fill="none" stroke="#18B5FF" stroke-opacity="0.18" stroke-width="3"/>
+    <circle r="118" fill="none" stroke="#18B5FF" stroke-opacity="0.35" stroke-width="3"/>
+    <circle r="92" fill="#18B5FF" opacity="0.55" filter="url(#glow)"/>
+    <circle r="86" fill="url(#core)"/>
+    <!-- microphone -->
+    <rect x="-17" y="-44" width="34" height="58" rx="17" fill="#03091A"/>
+    <path d="M-32 0 a32 32 0 0 0 64 0" fill="none" stroke="#03091A" stroke-width="7" stroke-linecap="round"/>
+    <line x1="0" y1="32" x2="0" y2="48" stroke="#03091A" stroke-width="7" stroke-linecap="round"/>
+  </g>
+
+  <!-- chat bubbles -->
+  <g font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22">
+    <rect x="640" y="250" width="420" height="64" rx="20" fill="#081A3D" stroke="#18B5FF" stroke-opacity="0.35"/>
+    <text x="664" y="290" fill="#cbd5e1">Hi, I'm Ahmad. What are you building?</text>
+    <rect x="740" y="336" width="320" height="64" rx="20" fill="#0D5CFF"/>
+    <text x="764" y="376" fill="#ffffff">A food delivery app</text>
+    <rect x="640" y="422" width="380" height="64" rx="20" fill="#081A3D" stroke="#18B5FF" stroke-opacity="0.35"/>
+    <circle cx="676" cy="454" r="6" fill="#94a3b8"/>
+    <circle cx="698" cy="454" r="6" fill="#94a3b8" opacity="0.6"/>
+    <circle cx="720" cy="454" r="6" fill="#94a3b8" opacity="0.3"/>
+  </g>
+
+  <text x="600" y="660" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="56" font-weight="700" fill="#f8fafc">Parlor</text>
+  <text x="600" y="708" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="24" fill="#94a3b8">Talk to AI personalities by voice</text>
+</svg>
