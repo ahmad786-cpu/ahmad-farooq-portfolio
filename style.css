@@ -2182,13 +2182,16 @@ html, body {
   border: 1px solid var(--border-hover);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(24, 181, 255, 0.12);
   background: var(--bg-dark); /* matches the embedded page while it loads */
+  padding: clamp(12px, 2.5vw, 24px);
 }
 
+/* Starting heights until the assistant reports its real height (main.js sets it exactly). */
 .ai-frame iframe {
   display: block;
   width: 100%;
-  height: 760px;
+  height: 600px;
   border: 0;
+  transition: height 0.2s ease;
 }
 
 .ai-note {
@@ -2198,9 +2201,15 @@ html, body {
   font-size: 0.9rem;
 }
 
-.ai-note a { color: var(--primary); margin-left: 6px; }
+.ai-note a { color: var(--primary); margin-left: 6px; display: inline-flex; align-items: center; gap: 6px; min-height: 40px; }
 
 @media (max-width: 860px) {
-  /* The demo stacks the call panel above the chat on narrow screens. */
-  .ai-frame iframe { height: 900px; }
+  /* The assistant stacks the call panel above the chat on narrow screens. */
+  .ai-frame iframe { height: 860px; }
+}
+
+@media (max-width: 480px) {
+  /* Give the assistant the full width of small phones. */
+  #ask-my-ai .container { padding-left: 12px; padding-right: 12px; }
+  .ai-frame { border-radius: 20px 6px 20px 6px; padding: 10px; }
 }

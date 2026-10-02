@@ -257,3 +257,17 @@ if (logo) {
         logo.style.setProperty('--lry', '0deg');
     });
 }
+
+// Ask My AI: the embedded Parlor assistant reports its content height, so the frame fits it
+// exactly on every screen size instead of scrolling inside. Only messages from Parlor are used.
+const aiFrame = document.getElementById('ai-frame');
+if (aiFrame) {
+    const parlorOrigin = new URL(aiFrame.src).origin;
+    window.addEventListener('message', (event) => {
+        if (event.origin !== parlorOrigin || event.source !== aiFrame.contentWindow) return;
+        const { type, height } = event.data || {};
+        if (type === 'parlor:height' && Number.isFinite(height) && height > 200 && height < 3000) {
+            aiFrame.style.height = `${Math.ceil(height)}px`;
+        }
+    });
+}
