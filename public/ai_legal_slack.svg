@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="AI Legal Slack Organization: documents flow into an AI knowledge base that answers in Slack">
+  <defs>
+    <radialGradient id="bg" cx="80%" cy="0%" r="120%">
+      <stop offset="0" stop-color="#123a7a"/>
+      <stop offset="0.6" stop-color="#03091A"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="40%" r="60%">
+      <stop offset="0" stop-color="#7fd6ff"/>
+      <stop offset="1" stop-color="#18B5FF"/>
+    </radialGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="24"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <!-- incoming documents -->
+    <g font-size="18" font-weight="700">
+      <g transform="translate(70 120)">
+        <rect width="170" height="96" rx="16" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.1"/>
+        <rect x="20" y="22" width="44" height="54" rx="6" fill="#0D5CFF"/>
+        <text x="80" y="56" fill="#f8fafc">DOCX</text>
+      </g>
+      <g transform="translate(70 240)">
+        <rect width="170" height="96" rx="16" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.1"/>
+        <rect x="20" y="22" width="44" height="54" rx="6" fill="#ff6b6b"/>
+        <text x="80" y="56" fill="#f8fafc">PDF</text>
+      </g>
+      <g transform="translate(70 360)">
+        <rect width="170" height="96" rx="16" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.1"/>
+        <rect x="20" y="22" width="44" height="54" rx="6" fill="#3C8A3F"/>
+        <circle cx="42" cy="44" r="8" fill="#03091A" opacity="0.5"/>
+        <text x="80" y="56" fill="#f8fafc">Image</text>
+      </g>
+      <g transform="translate(70 480)">
+        <rect width="170" height="96" rx="16" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.1"/>
+        <rect x="20" y="22" width="44" height="54" rx="6" fill="#E08A1E"/>
+        <path d="M26 34 L42 48 L58 34" fill="none" stroke="#03091A" stroke-width="4"/>
+        <text x="80" y="56" fill="#f8fafc">Email</text>
+      </g>
+    </g>
+
+    <!-- flow lines into the AI core -->
+    <g fill="none" stroke="#18B5FF" stroke-opacity="0.5" stroke-width="3">
+      <path d="M240 168 C330 168 330 340 420 340"/>
+      <path d="M240 288 C320 288 330 345 420 345"/>
+      <path d="M240 408 C320 408 330 355 420 355"/>
+      <path d="M240 528 C330 528 330 360 420 360"/>
+    </g>
+
+    <!-- AI core: embeddings + vector search -->
+    <g transform="translate(520 350)">
+      <circle r="120" fill="none" stroke="#18B5FF" stroke-opacity="0.2" stroke-width="3"/>
+      <circle r="92" fill="#18B5FF" opacity="0.5" filter="url(#glow)"/>
+      <circle r="86" fill="url(#core)"/>
+      <text y="-6" text-anchor="middle" font-size="30" font-weight="700" fill="#03091A">AI + RAG</text>
+      <text y="26" text-anchor="middle" font-size="17" font-weight="600" fill="#03091A">OpenAI · Pinecone</text>
+    </g>
+    <!-- vector dots -->
+    <g fill="#18B5FF">
+      <circle cx="430" cy="530" r="5" opacity="0.8"/><circle cx="462" cy="556" r="4" opacity="0.6"/>
+      <circle cx="498" cy="540" r="6" opacity="0.9"/><circle cx="532" cy="566" r="4" opacity="0.5"/>
+      <circle cx="566" cy="538" r="5" opacity="0.7"/><circle cx="604" cy="560" r="6" opacity="0.8"/>
+    </g>
+    <text x="520" y="610" text-anchor="middle" font-size="18" fill="#94a3b8">Embeddings index</text>
+
+    <path d="M640 350 H700" stroke="#18B5FF" stroke-width="3"/>
+    <path d="M692 340 L704 350 L692 360" fill="none" stroke="#18B5FF" stroke-width="3"/>
+
+    <!-- Slack-style channel -->
+    <rect x="712" y="110" width="430" height="400" rx="24" fill="#081A3D" stroke="#18B5FF" stroke-opacity="0.35"/>
+    <text x="742" y="160" font-size="22" font-weight="700" fill="#f8fafc"># legal-team</text>
+    <line x1="712" y1="182" x2="1142" y2="182" stroke="#ffffff" stroke-opacity="0.08"/>
+    <g font-size="17">
+      <rect x="742" y="204" width="44" height="44" rx="10" fill="#7A4FBF"/>
+      <text x="800" y="222" font-weight="700" fill="#f8fafc">Sarah</text>
+      <text x="800" y="246" fill="#cbd5e1">Any deadlines in the new lease?</text>
+      <rect x="742" y="276" width="44" height="44" rx="10" fill="#18B5FF"/>
+      <text x="800" y="294" font-weight="700" fill="#18B5FF">Legal AI</text>
+      <text x="800" y="318" fill="#cbd5e1">Renewal notice due 30 days before</text>
+      <text x="800" y="342" fill="#cbd5e1">June 1 (Section 4.2). Added to</text>
+      <text x="800" y="366" fill="#cbd5e1">Google Calendar.</text>
+      <rect x="800" y="384" width="200" height="40" rx="10" fill="#0D5CFF"/>
+      <text x="820" y="410" fill="#ffffff">Draft notice.docx</text>
+    </g>
+    <rect x="742" y="446" width="370" height="40" rx="12" fill="#03091A" stroke="#ffffff" stroke-opacity="0.1"/>
+    <text x="760" y="472" font-size="16" fill="#94a3b8">Message #legal-team</text>
+  </g>
+
+  <text x="600" y="700" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="46" font-weight="700" fill="#f8fafc">AI Legal Slack Organization</text>
+  <text x="600" y="744" text-anchor="middle" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="22" fill="#94a3b8">Legal documents in, answers and schedules out</text>
+</svg>
