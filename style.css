@@ -2181,7 +2181,7 @@ html, body {
   overflow: hidden;
   border: 1px solid var(--border-hover);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(24, 181, 255, 0.12);
-  background: #edeef3; /* matches the embedded page while it loads */
+  background: var(--bg-dark); /* matches the embedded page while it loads */
 }
 
 .ai-frame iframe {
