@@ -12,15 +12,16 @@ const sections = document.querySelectorAll('section');
 
 // Typewriter Effect
 const typewriterElement = document.getElementById('typewriter');
+// Each role carries its own article, so "an AI Developer" and "a Flutter Developer" both read correctly.
 const roles = [
-    "AI Developer",
-    "Flutter Developer",
-    "React Native Developer",
-    "Full-Stack Developer",
-    "Product Engineer",
-    "UI/UX Designer",
-    "Open Source Contributor",
-    "Tech Lead"
+    "an AI Developer",
+    "a Flutter Developer",
+    "a React Native Developer",
+    "a Full-Stack Developer",
+    "a Product Engineer",
+    "a UI/UX Designer",
+    "an Open Source Contributor",
+    "a Tech Lead"
 ];
 let roleIndex = 0;
 let charIndex = 0;
