@@ -6,10 +6,10 @@
 const bookCallUrl = '';
 
 /// Supabase project that stores contact-form messages (table `leads`, insert-only for visitors).
-const supabaseUrl = 'https://qlvyfsryncelrfhskhor.supabase.co';
+const supabaseUrl = 'https://ihmoxtkoprllshstbcju.supabase.co';
 // The public (anon) key: safe in a website; row level security only allows inserting leads.
 const supabaseAnonKey =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFsdnlmc3J5bmNlbHJmaHNraG9yIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA5Mjk5ODgsImV4cCI6MjEwNjUwNTk4OH0.b6xmGHVTqOYsnb2Ts7yTH9vqNm5NOv9sOY3gTKms5IU';
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImlobW94dGtvcHJsbHNoc3RiY2p1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMDAxMTUsImV4cCI6MjEwNjg3NjExNX0.108zSTPAmNu-2_KKQIJ8tAuI3EsEhKso6Or-cyEImZc';
 
 class CaseStudy {
   const CaseStudy({
