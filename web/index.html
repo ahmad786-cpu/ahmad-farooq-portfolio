@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ahmad Farooq | AI & Full-Stack Developer | 50+ Projects Delivered</title>
+  <meta name="description" content="AI & Full-Stack Developer building AI assistants, voice agents and RAG apps, plus Flutter mobile apps and Node.js backends. 5+ years and 50+ projects for clients worldwide.">
+  <meta name="author" content="Ahmad Farooq">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#03091a">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ahmad-farooq-portfolio.vercel.app/">
+  <meta property="og:title" content="Ahmad Farooq | AI & Full-Stack Developer">
+  <meta property="og:description" content="AI & Full-Stack Developer: AI assistants, voice agents and RAG apps, Flutter mobile apps and Node.js backends. Talk to my AI or view 50+ delivered projects.">
+  <meta property="og:image" content="https://ahmad-farooq-portfolio.vercel.app/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ahmad Farooq, AI & Full-Stack Developer">
+  <meta property="og:site_name" content="Ahmad Farooq Portfolio">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ahmad Farooq | AI & Full-Stack Developer">
+  <meta name="twitter:description" content="AI & Full-Stack Developer building AI assistants, voice agents and RAG apps, plus Flutter apps and Node.js backends. 5+ years, 50+ projects.">
+  <meta name="twitter:image" content="https://ahmad-farooq-portfolio.vercel.app/og-image.png">
+  <script type="application/ld+json">
+  {"@context": "https://schema.org", "@type": "Person", "name": "Ahmad Farooq", "url": "https://ahmad-farooq-portfolio.vercel.app/", "image": "https://ahmad-farooq-portfolio.vercel.app/og-image.png",
+    "jobTitle": "AI & Full-Stack Developer", "worksFor": {"@type": "Organization", "name": "AF TECH"},
+    "sameAs": ["https://linkedin.com/in/ahmad-farooq-57bb771bb", "https://github.com/ahmad786-cpu", "https://www.fiverr.com/s/WE2aPoQ"]}
+  </script>
+  <link rel="canonical" href="https://ahmad-farooq-portfolio.vercel.app/">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preload" href="splash-logo.webp" as="image">
+  <style>
+    /* The same Outfit file Flutter uses, so the splash and the site share one font download. */
+    @font-face { font-family: "Outfit"; src: url("assets/assets/fonts/Outfit.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+    html, body { margin: 0; background: #03091a; }
+
+    /* Loading screen, shown until Flutter draws its first frame. */
+    #splash { position: fixed; inset: 0; z-index: 9; overflow: hidden; display: grid; place-items: center;
+      background: #03091a; color: #f8fafc; font-family: "Outfit", system-ui, -apple-system, "Segoe UI", sans-serif;
+      transition: opacity .7s ease, transform .9s cubic-bezier(.2,.8,.2,1), filter .7s ease; }
+    #splash.done { opacity: 0; transform: scale(1.12); filter: blur(8px); pointer-events: none; }
+
+    /* Drifting colour glows. */
+    #splash .glow { position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%; filter: blur(90px); opacity: .34; }
+    #splash .g1 { background: #0d5cff; top: -25vmax; left: -15vmax; animation: drift1 14s ease-in-out infinite alternate; }
+    #splash .g2 { background: #18b5ff; bottom: -30vmax; right: -20vmax; opacity: .3; animation: drift2 16s ease-in-out infinite alternate; }
+    @keyframes drift1 { to { transform: translate(18vmax, 12vmax) scale(1.15); } }
+    @keyframes drift2 { to { transform: translate(-16vmax, -10vmax) scale(1.1); } }
+
+    /* Faint grid fading out from the centre, slowly moving towards the viewer. */
+    #splash .grid { position: absolute; inset: -50%; transform: perspective(600px) rotateX(58deg); transform-origin: center 65%;
+      background-image: linear-gradient(rgba(24,181,255,.13) 1px, transparent 1px), linear-gradient(90deg, rgba(24,181,255,.13) 1px, transparent 1px);
+      background-size: 56px 56px; animation: grid 3s linear infinite;
+      -webkit-mask-image: radial-gradient(ellipse at 50% 60%, #000 0%, transparent 45%); mask-image: radial-gradient(ellipse at 50% 60%, #000 0%, transparent 45%); }
+    @keyframes grid { to { background-position: 0 56px; } }
+
+    /* Twinkling stars. */
+    #splash .stars, #splash .stars::after { position: absolute; inset: 0; content: "";
+      background-image: radial-gradient(1.5px 1.5px at 12% 18%, #fff, transparent), radial-gradient(1px 1px at 78% 12%, #9fdcff, transparent),
+        radial-gradient(1.5px 1.5px at 88% 64%, #fff, transparent), radial-gradient(1px 1px at 22% 78%, #9fdcff, transparent),
+        radial-gradient(1px 1px at 45% 8%, #fff, transparent), radial-gradient(1.5px 1.5px at 64% 88%, #9fdcff, transparent),
+        radial-gradient(1px 1px at 6% 52%, #fff, transparent), radial-gradient(1px 1px at 95% 35%, #fff, transparent);
+      animation: twinkle 3.5s ease-in-out infinite alternate; }
+    #splash .stars::after { transform: translate(7%, 11%) scale(1.1); animation-delay: -1.7s; }
+    @keyframes twinkle { from { opacity: .25; } to { opacity: .9; } }
+
+    #splash .content { position: relative; display: flex; flex-direction: column; align-items: center; padding: 0 24px; text-align: center;
+      animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+    @keyframes rise { from { opacity: 0; transform: translateY(18px) scale(.97); } }
+
+    /* Logo inside spinning gradient rings, with orbiting dots. */
+    #splash .orbit { position: relative; width: 168px; height: 168px; display: grid; place-items: center; margin-bottom: 30px; }
+    #splash .ring { position: absolute; inset: 0; border-radius: 50%; padding: 3px;
+      background: conic-gradient(from 0deg, transparent 0 25%, #18b5ff 60%, #0d5cff 85%, transparent 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+      mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+      animation: spin 1.6s linear infinite; filter: drop-shadow(0 0 10px rgba(24,181,255,.7)); }
+    #splash .ring.r2 { inset: 16px; padding: 2px; opacity: .65; animation-duration: 2.6s; animation-direction: reverse;
+      background: conic-gradient(from 90deg, transparent 0 40%, #7dd3fc 75%, transparent 100%); }
+    #splash .dot { position: absolute; inset: -6px; animation: spin 3.2s linear infinite; }
+    #splash .dot::before { content: ""; position: absolute; top: 0; left: 50%; width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%;
+      background: #18b5ff; box-shadow: 0 0 14px 3px rgba(24,181,255,.9); }
+    #splash .dot.d2 { inset: 8px; animation-duration: 4.4s; animation-direction: reverse; }
+    #splash .dot.d2::before { width: 6px; height: 6px; margin-left: -3px; background: #e0f2fe; box-shadow: 0 0 10px 2px rgba(224,242,254,.8); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #splash .logo { position: relative; width: 92px; height: 92px; border-radius: 26px; overflow: hidden; background: #fff;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.15), 0 12px 40px rgba(13,92,255,.45); animation: breathe 2.4s ease-in-out infinite; }
+    #splash .logo img { width: 100%; height: 100%; display: block; }
+    #splash .logo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 35%, rgba(255,255,255,.65) 50%, transparent 65%);
+      transform: translateX(-120%); animation: sheen 2.8s ease-in-out infinite 0.6s; }
+    @keyframes breathe { 50% { transform: scale(1.05); } }
+    @keyframes sheen { 60%, 100% { transform: translateX(120%); } }
+
+    #splash h1 { margin: 0; font-size: clamp(34px, 7vw, 52px); font-weight: 800; letter-spacing: -1px; line-height: 1.05;
+      background: linear-gradient(90deg, #ffffff 0%, #ffffff 35%, #18b5ff 50%, #ffffff 65%, #ffffff 100%); background-size: 250% 100%;
+      -webkit-background-clip: text; background-clip: text; color: transparent; animation: shimmer 3s linear infinite; }
+    @keyframes shimmer { from { background-position: 100% 0; } to { background-position: -150% 0; } }
+    #splash .role { margin: 10px 0 0; font-size: clamp(15px, 3.6vw, 18px); font-weight: 500; color: #94a3b8; letter-spacing: .3px; }
+    #splash .role b { font-weight: 600; background: linear-gradient(90deg, #18b5ff, #0d5cff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    /* Progress bar: eases towards 90% while loading, fills when the site is ready. */
+    #splash .bar { position: relative; width: min(260px, 70vw); height: 4px; margin: 32px 0 14px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; }
+    #splash .bar i { position: absolute; inset: 0 auto 0 0; width: 0; border-radius: 4px; background: linear-gradient(90deg, #18b5ff, #0d5cff);
+      box-shadow: 0 0 12px rgba(24,181,255,.9); transition: width .4s ease; }
+    #splash .bar i::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,.7), transparent);
+      animation: flow 1.2s linear infinite; }
+    @keyframes flow { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
+    #splash .status { height: 20px; margin: 0; font-size: 14px; font-weight: 400; color: #64748b; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      transition: opacity .3s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      #splash *, #splash *::before, #splash *::after { animation: none !important; }
+      #splash.done { transform: none; filter: none; }
+    }
+  </style>
+</head>
+<body>
+  <div id="splash" role="status" aria-label="Loading Ahmad Farooq's portfolio">
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="grid"></div>
+    <div class="stars"></div>
+    <div class="content">
+      <div class="orbit" aria-hidden="true">
+        <div class="ring"></div>
+        <div class="ring r2"></div>
+        <div class="dot"></div>
+        <div class="dot d2"></div>
+        <div class="logo"><img src="splash-logo.webp" alt=""></div>
+      </div>
+      <h1>Ahmad Farooq</h1>
+      <p class="role"><b>AI</b> &amp; Full-Stack Developer</p>
+      <div class="bar"><i id="splash-bar"></i></div>
+      <p class="status" id="splash-status">Loading the experience…</p>
+    </div>
+  </div>
+  <noscript>Ahmad Farooq, AI &amp; Full-Stack Developer. This site needs JavaScript. Contact: ahmadfarooq5581@gmail.com, WhatsApp +92 347 5776857.</noscript>
+  <script>
+    (function () {
+      var splash = document.getElementById('splash');
+      var bar = document.getElementById('splash-bar');
+      var status = document.getElementById('splash-status');
+      var messages = ['Loading the experience…', 'Building the 3D tech globe…', 'Polishing the projects…', 'Waking up my AI assistant…', 'Almost there…'];
+      var progress = 0, step = 0;
+      // Creep towards 90% (fast at first, then slower); the last 10% is the real "ready" signal.
+      var tick = setInterval(function () {
+        progress += (90 - progress) * 0.06;
+        bar.style.width = progress + '%';
+      }, 120);
+      var rotate = setInterval(function () {
+        step = Math.min(step + 1, messages.length - 1);
+        status.style.opacity = '0';
+        setTimeout(function () { status.textContent = messages[step]; status.style.opacity = '1'; }, 300);
+      }, 1600);
+      window.addEventListener('flutter-first-frame', function () {
+        clearInterval(tick); clearInterval(rotate);
+        bar.style.width = '100%';
+        status.textContent = 'Welcome!';
+        setTimeout(function () { splash.classList.add('done'); }, 350);
+        setTimeout(function () { splash.remove(); }, 1300);
+      });
+    })();
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+  <!-- Vercel Web Analytics (turn it on in the Vercel dashboard: Project > Analytics). -->
+  <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Enterprise CRM System dashboard">
+  <defs>
+    <radialGradient id="bg" cx="20%" cy="0%" r="120%">
+      <stop offset="0" stop-color="#123a7a"/>
+      <stop offset="0.6" stop-color="#03091A"/>
+    </radialGradient>
+    <linearGradient id="bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#0D5CFF"/>
+      <stop offset="1" stop-color="#18B5FF"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#18B5FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#18B5FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <!-- sidebar -->
+    <rect x="60" y="60" width="200" height="680" rx="24" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="90" y="112" font-size="26" font-weight="700" fill="#f8fafc">CRM</text>
+    <rect x="80" y="150" width="160" height="40" rx="10" fill="#18B5FF" fill-opacity="0.18"/>
+    <text x="100" y="177" font-size="18" fill="#18B5FF">Dashboard</text>
+    <text x="100" y="237" font-size="18" fill="#94a3b8">Customers</text>
+    <text x="100" y="287" font-size="18" fill="#94a3b8">Deals</text>
+    <text x="100" y="337" font-size="18" fill="#94a3b8">Automations</text>
+    <text x="100" y="387" font-size="18" fill="#94a3b8">Reports</text>
+
+    <!-- KPI tiles -->
+    <rect x="290" y="60" width="270" height="140" rx="22" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="318" y="105" font-size="18" fill="#94a3b8">Customers</text>
+    <text x="318" y="160" font-size="44" font-weight="700" fill="#f8fafc">12,480</text>
+    <rect x="580" y="60" width="270" height="140" rx="22" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="608" y="105" font-size="18" fill="#94a3b8">Pipeline</text>
+    <text x="608" y="160" font-size="44" font-weight="700" fill="#f8fafc">$1.2M</text>
+    <rect x="870" y="60" width="270" height="140" rx="22" fill="#081A3D" stroke="#18B5FF" stroke-opacity="0.4"/>
+    <text x="898" y="105" font-size="18" fill="#18B5FF">AI insight</text>
+    <text x="898" y="142" font-size="17" fill="#cbd5e1">38 deals likely to</text>
+    <text x="898" y="168" font-size="17" fill="#cbd5e1">close this week</text>
+
+    <!-- revenue chart -->
+    <rect x="290" y="225" width="560" height="320" rx="22" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="318" y="270" font-size="20" font-weight="600" fill="#f8fafc">Revenue</text>
+    <path d="M320 480 L400 440 L480 455 L560 400 L640 410 L720 350 L820 320 L820 515 L320 515 Z" fill="url(#area)"/>
+    <path d="M320 480 L400 440 L480 455 L560 400 L640 410 L720 350 L820 320" fill="none" stroke="#18B5FF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="820" cy="320" r="9" fill="#18B5FF"/>
+
+    <!-- funnel bars -->
+    <rect x="870" y="225" width="270" height="320" rx="22" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="898" y="270" font-size="20" font-weight="600" fill="#f8fafc">Pipeline stages</text>
+    <rect x="905" y="395" width="36" height="120" rx="8" fill="url(#bar)"/>
+    <rect x="960" y="345" width="36" height="170" rx="8" fill="url(#bar)"/>
+    <rect x="1015" y="425" width="36" height="90" rx="8" fill="url(#bar)"/>
+    <rect x="1070" y="455" width="36" height="60" rx="8" fill="url(#bar)"/>
+
+    <!-- automation row -->
+    <rect x="290" y="570" width="850" height="170" rx="22" fill="#081A3D" stroke="#ffffff" stroke-opacity="0.08"/>
+    <text x="318" y="615" font-size="20" font-weight="600" fill="#f8fafc">Automation</text>
+    <g font-size="17">
+      <rect x="318" y="640" width="220" height="64" rx="14" fill="#03091A" stroke="#18B5FF" stroke-opacity="0.4"/>
+      <text x="340" y="679" fill="#cbd5e1">New lead arrives</text>
+      <path d="M548 672 H600" stroke="#18B5FF" stroke-width="3"/>
+      <path d="M594 664 L604 672 L594 680" fill="none" stroke="#18B5FF" stroke-width="3"/>
+      <rect x="612" y="640" width="220" height="64" rx="14" fill="#03091A" stroke="#18B5FF" stroke-opacity="0.4"/>
+      <text x="634" y="679" fill="#cbd5e1">AI scores the lead</text>
+      <path d="M842 672 H894" stroke="#18B5FF" stroke-width="3"/>
+      <path d="M888 664 L898 672 L888 680" fill="none" stroke="#18B5FF" stroke-width="3"/>
+      <rect x="906" y="640" width="210" height="64" rx="14" fill="#0D5CFF"/>
+      <text x="928" y="679" fill="#ffffff">Assign + follow up</text>
+    </g>
+  </g>
+</svg>
