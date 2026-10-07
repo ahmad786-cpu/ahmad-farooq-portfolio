@@ -8,6 +8,7 @@ import 'pages/case_study.dart';
 import 'sections/ask_ai.dart';
 import 'sections/features.dart';
 import 'sections/hero.dart';
+import 'sections/projects.dart';
 import 'sections/sections.dart';
 import 'theme.dart';
 import 'widgets/ai_fab.dart';
